@@ -6,6 +6,7 @@
 }
 // --------------------image, text and button section------------------------
 .container {
+	$container: &;
 	max-width: 1440px;
 	padding-top: 3rem;
 	margin: 0 auto;
@@ -62,9 +63,58 @@
 			}
 		}
 	}
+	//-------------------- blocker when popup is active ------------------------
+	.blocker {
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		content: "";
+		background-color: rgba(0, 0, 0, 0.5);
+		display: none;
+		&.active {
+			display: block;
+		}
+	}
+	//----------------- popup ---------------------
+	.popup {
+		display: none;
+		position: relative;
+		transform: translateY(-50%);
+		width: 70vw;
+		height: 210px;
+		background-color: #fff;
+		border: 2px solid black;
+		padding: 15px 15px;
+
+		&__header {
+			font-size: 28px;
+			font-weight: 700;
+			margin-bottom: 24px;
+		}
+		&__text {
+			font-weight: 300;
+		}
+		&__close {
+			all: unset;
+			position: absolute;
+			top: 20px;
+			right: 20px;
+			font-size: 24px;
+			line-height: 0;
+			cursor: pointer;
+			&:active {
+				font-weight: 700;
+			}
+		}
+		&.show {
+			display: block;
+		}
+	}
 }
 
-//-------------------media queries for different screen sizes------------------------
+//-------------------media queries for different screen sizes with img optimization------------------------
 
 @media screen and (min-width: 350px) {
 	.container__image {
@@ -113,99 +163,17 @@
 				align-self: flex-start;
 			}
 		}
-	}
-	//-------------------- popup section------------------------
-	.popup {
-		display: none;
-		position: relative;
-		transform: translateY(-50%);
-		width: 920px;
-		height: 210px;
-		background-color: #fff;
-		border: 2px solid black;
-		padding: 56px 95px;
-		&__header {
-			font-size: 42px;
-			font-weight: 700;
-			margin-bottom: 24px;
-		}
-		&__text {
-			font-weight: 300;
-		}
-		&__close {
-			all: unset;
-			position: absolute;
-			top: 46px;
-			right: 46px;
-			font-size: 24px;
-			line-height: 0;
-			cursor: pointer;
-			&:active {
-				font-weight: 700;
+		//----------------- popup ---------------------
+		.popup {
+			width: 920px;
+			padding: 56px 95px;
+			&__header {
+				font-size: 42px;
 			}
-		}
-		&.show {
-			display: block;
+			&__close {
+				top: 46px;
+				right: 46px;
+			}
 		}
 	}
 }
-
-// .container {
-// 	max-width: 1440px;
-// 	border: 2px solid black;
-// 	display: flex;
-// 	flex-wrap: wrap;
-// 	justify-content: space-evenly;
-// 	align-content: flex-start;
-// 	padding-top: 6rem;
-// 	margin: 0 auto;
-// 	min-height: 100vh;
-
-// 	&__image {
-// 		display: block;
-// 		flex-basis: 35%;
-// 		max-width: 100%;
-// 		height: auto;
-// 		@media screen and(min-width: 1200px) {
-// 			background-image: url("/images/sean-o-KMn4VEeEPR8-unsplash_1_s6zmfh_c_scale\,w_1400.jpg");
-// 		}
-// 		background-image: url("/images/sean-o-KMn4VEeEPR8-unsplash_1_s6zmfh_ar_16_9,c_fill,g_auto__c_scale,w_596.jpg");
-// 		background-repeat: no-repeat;
-// 		background-position: center;
-// 	}
-// 	&__article {
-// 		font-family: "Roboto", Arial, sans-serif;
-// 		color: #121212;
-// 		flex-basis: 35%;
-// 		padding: 30px 0;
-// 		display: flex;
-// 		flex-direction: column;
-// 		align-self: baseline;
-// 		&-title {
-// 			font-size: 2.625rem;
-// 			font-weight: 700;
-// 			margin-bottom: 24px;
-// 		}
-// 		&-paragraph {
-// 			font-size: 1rem;
-// 			line-height: 24px;
-// 			font-weight: 300;
-// 			margin-bottom: 32px;
-// 		}
-// 		&-button {
-// 			font-size: 1rem;
-// 			font-weight: 700;
-// 			width: 128px;
-// 			height: 48px;
-// 			border-radius: 32px;
-// 			border: none;
-// 			background-color: #e4c1ae;
-// 			color: #fff;
-// 			cursor: pointer;
-// 			transition: 0.5s;
-// 			&:hover {
-// 				background-color: darken(#e4c1ae, 20%);
-// 			}
-// 		}
-// 	}
-// }
