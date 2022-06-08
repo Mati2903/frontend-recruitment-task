@@ -1,12 +1,12 @@
 {
   "name": "gravity-global-recruitment-task",
   "version": "1.0.0",
-  "description": "",
+  "description": "Zadanie jest przeznaczone na każdy poziom umiejętności developera, dzieli się na poszczególne zadania,\r które są stopniowo coraz trudniejsze. Każdy powinien zrobić test na tyle ile aktualnie potrafi, gdyż\r poszukujemy bardzo często osób z różnym poziomem wiedzy.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "Mateusz Mazurek",
   "license": "ISC",
   "devDependencies": {
     "autoprefixer": "^9.6.0",
@@ -19,5 +19,13 @@
     "gulp-sass": "^4.0.2",
     "gulp-sourcemaps": "^2.6.5",
     "gulp-uglify": "^3.0.2"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mati2903/frontend-recruitment-task.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Mati2903/frontend-recruitment-task/issues"
+  },
+  "homepage": "https://github.com/Mati2903/frontend-recruitment-task#readme"
 }
