@@ -4,9 +4,8 @@
 	padding: 0;
 	box-sizing: border-box;
 }
-// --------------------image, text and button section------------------------
+// --------------------image, text and button section (mobile-first)------------------------
 .container {
-	$container: &;
 	max-width: 1440px;
 	padding-top: 3rem;
 	margin: 0 auto;
@@ -15,7 +14,19 @@
 	flex-direction: column;
 	align-items: center;
 	font-family: "Roboto", Arial, sans-serif;
-
+	//checkbox for high contrast mode
+	&__checkbox {
+		position: absolute;
+		top: 15px;
+		right: 15px;
+		font-size: 20px;
+	}
+	&__checkbox-check {
+		height: 15px;
+		width: 20px;
+		margin-left: 20px;
+	}
+	//image section
 	&__image {
 		display: block;
 		width: 200px;
@@ -25,6 +36,7 @@
 		background-size: cover;
 		background-position: center;
 	}
+	//article section
 	&__article {
 		color: #121212;
 		padding: 30px 20px;
@@ -63,6 +75,19 @@
 			}
 		}
 	}
+	//high contrast section with text and checkbox
+	&.high-contrast-active {
+		.container__checkbox {
+			color: white;
+		}
+		.container__article {
+			color: yellow;
+			&-button {
+				color: black;
+				background-color: white;
+			}
+		}
+	}
 	//-------------------- blocker when popup is active ------------------------
 	.blocker {
 		position: fixed;
@@ -95,7 +120,11 @@
 		}
 		&__text {
 			font-weight: 300;
+			&-click-info {
+				font-weight: 700;
+			}
 		}
+		//close button X
 		&__close {
 			all: unset;
 			position: absolute;
@@ -110,6 +139,19 @@
 		}
 		&.show {
 			display: block;
+		}
+		//counter reset button
+		&__counter-reset {
+			display: none;
+			font-size: 1rem;
+			font-weight: 700;
+			width: 128px;
+			height: 30px;
+			border-radius: 32px;
+			border: none;
+			background-color: #e4c1ae;
+			color: white;
+			cursor: pointer;
 		}
 	}
 }
@@ -140,7 +182,7 @@
 	}
 }
 
-//-----------------------media query for desktop---------------------------------
+//-----------------------styles for desktop---------------------------------
 
 @media screen and (min-width: 1025px) {
 	.container {
