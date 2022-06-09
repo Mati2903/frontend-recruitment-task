@@ -51,7 +51,13 @@ function handlePopup() {
 		clicks++;
 		clicksCounter.innerText = `${clicks} ${clicks === 1 ? "time" : "times"}`;
 
-		localStorage.setItem("clickNr", clicksCounter.innerText[0]);
+		// check if clicks value is 1 or 2 digit
+		if (clicks < 10) {
+			localStorage.setItem("clickNr", clicksCounter.innerText[0]);
+		} else if (clicks >= 10) {
+			localStorage.setItem("clickNr", clicksCounter.innerText.slice(0, 2));
+		}
+
 		// if click counter is >= 5 then display reset button
 		if (clicks >= 5) {
 			resetBtn.style.display = "block";
